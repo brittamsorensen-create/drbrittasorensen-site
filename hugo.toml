@@ -1,3 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://drbrittasorensen.com/'
 locale = 'en-us'
-title = 'My New Hugo Project'
+title = 'Dr Britta Sorensen'
+
+[build]
+  writeStats = true

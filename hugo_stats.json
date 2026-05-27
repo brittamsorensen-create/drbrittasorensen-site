@@ -1,0 +1,33 @@
+{
+  "htmlElements": {
+    "tags": [
+      "body",
+      "div",
+      "h1",
+      "head",
+      "html",
+      "link",
+      "main",
+      "meta",
+      "p",
+      "title"
+    ],
+    "classes": [
+      "bg-white",
+      "flex",
+      "font-bold",
+      "font-sans",
+      "items-center",
+      "justify-center",
+      "mb-4",
+      "min-h-screen",
+      "px-6",
+      "text-5xl",
+      "text-center",
+      "text-gray-600",
+      "text-gray-900",
+      "text-xl"
+    ],
+    "ids": null
+  }
+}
