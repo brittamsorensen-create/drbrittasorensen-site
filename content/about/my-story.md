@@ -31,10 +31,8 @@ I believe in doing this rigorously and accessibly — without oversimplification
 
 ## Qualifications
 
-- **PhD, Applied Sport Psychology** — University of Central Lancashire, 2025
-- **MPhil** — University of Central Lancashire, 2016
-- **MA, Sport and Exercise Psychology** — 2010
-- **BTEC Level 4, Sport Massage Therapy** — 2015
-- **CYQ Level 3, Personal Training** — 2014
-- **Certificate in Education (Physical Education)** — 1998
-- **BA (Hons)** — 1994
+- **PhD, Applied Sport Psychology** — St Mary's University, Twickenham, 2018–2025. Thesis: *Examining the effectiveness of reflective practice, self-regulatory and cognitive strategies to enhance sport-specific risk and pain management during female ultra-endurance and endurance performance.*
+- **MPhil, Sport Performance Psychology** — University of Loughborough, 2014–2016. Thesis: *Examining the psychological preparation and management of performance by elite and sub-elite endurance sport performers: A systematic review.*
+- **MA, Management** — Coventry University / Cornwall College Business School, 2009–2010. Dissertation: *Capturing the perceptions of quality at an Intra-institutional and Interinstitutional level for two educational institutions.*
+- **Certificate of Education (Adult and FE)** — University of Nottingham, 1997–1998
+- **BA (Hons), Sport Science and Tourism, Leisure and Recreation** — Canterbury Christ Church, University of Kent, 1991–1994
