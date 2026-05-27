@@ -11,7 +11,7 @@ What was it that allowed some athletes to push through extraordinary levels of d
 
 ## The research begins
 
-That curiosity led me back to formal study. My MPhil opened the door; my PhD in applied sport psychology at the University of Central Lancashire built the framework. Over four years of doctoral research, I focused on a population that had been largely overlooked in the literature: female ultra-endurance athletes.
+That curiosity led me back to formal study. My MPhil opened the door; my PhD in applied sport psychology at St Mary's University, Twickenham built the framework. Over four years of doctoral research, I focused on a population that had been largely overlooked in the literature: female ultra-endurance athletes.
 
 My research asked how these women experienced and managed pain during competition — not from a purely physiological perspective, but through a biopsychosocial lens that integrated the physical, psychological, and social dimensions of their experience. The findings were illuminating, challenging prevailing assumptions, and pointing towards a far more nuanced picture of what drives women to perform at the very edge of their limits.
 
