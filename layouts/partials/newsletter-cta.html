@@ -1,0 +1,32 @@
+{{ if not (eq .Section "contact") }}
+<section class="bg-teal-800 py-16 px-4" id="newsletter">
+  <div class="max-w-2xl mx-auto text-center">
+    <span class="font-sans text-terracotta-300 font-medium tracking-widest uppercase text-xs mb-4 block">Stay Connected</span>
+    <h2 class="font-serif text-3xl sm:text-4xl text-white mb-4 leading-tight">Evidence-based insights, straight to your inbox</h2>
+    <p class="font-sans text-teal-200 text-lg mb-8 leading-relaxed">
+      Research findings, practical mental performance strategies, and updates on retreats and resources — for women who go the distance.
+    </p>
+    <form
+      name="newsletter"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+    >
+      <input type="hidden" name="form-name" value="newsletter">
+      <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder="Your email address"
+        class="flex-1 px-4 py-3 font-sans text-gray-900 bg-white border-0 focus:outline-none focus:ring-2 focus:ring-terracotta-400 placeholder-gray-400"
+      >
+      <button type="submit" class="btn-primary whitespace-nowrap">
+        Subscribe
+      </button>
+    </form>
+    <p class="font-sans text-xs text-teal-400 mt-4">No spam. Unsubscribe any time. GDPR compliant.</p>
+  </div>
+</section>
+{{ end }}

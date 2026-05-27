@@ -1,0 +1,46 @@
+{{ define "main" }}
+<div>
+  <header class="bg-teal-900 py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+      <span class="font-sans text-terracotta-300 font-medium tracking-widest uppercase text-xs mb-4 block">{{ .Type | title }}</span>
+      <h1 class="font-serif text-4xl sm:text-5xl text-white leading-tight">{{ .Title }}</h1>
+      <p class="font-sans text-teal-200 text-base mt-3">{{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}</p>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    {{ if .Pages }}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range .Pages }}
+      <article class="group">
+        <div class="aspect-video bg-stone-100 mb-5 overflow-hidden">
+          {{ with .Params.image }}
+          <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          {{ else }}
+          <div class="w-full h-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-stone-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+            </svg>
+          </div>
+          {{ end }}
+        </div>
+        {{ with .Params.categories }}
+        <span class="font-sans text-terracotta-500 text-xs font-medium tracking-widest uppercase mb-2 block">{{ index . 0 }}</span>
+        {{ end }}
+        <h2 class="font-serif text-xl text-teal-900 leading-tight mb-3 group-hover:text-teal-700 transition-colors">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+        <p class="font-sans text-gray-600 text-sm leading-relaxed mb-4">{{ .Summary | truncate 120 }}</p>
+        <div class="flex items-center justify-between">
+          <span class="font-sans text-xs text-gray-400">{{ .Date.Format "2 January 2006" }}</span>
+          <a href="{{ .Permalink }}" class="font-sans text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors">Read more →</a>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="font-sans text-gray-400 text-center py-20">No posts found.</p>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,62 @@
+{{ define "main" }}
+<article>
+  <header class="bg-teal-900 py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+      {{ with .Params.categories }}
+      <span class="font-sans text-terracotta-300 font-medium tracking-widest uppercase text-xs mb-4 block">{{ index . 0 }}</span>
+      {{ end }}
+      <h1 class="font-serif text-4xl sm:text-5xl text-white leading-tight mb-5">{{ .Title }}</h1>
+      <div class="flex items-center gap-4 font-sans text-sm text-teal-300">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+        {{ with .ReadingTime }}<span>·</span><span>{{ . }} min read</span>{{ end }}
+      </div>
+    </div>
+  </header>
+
+  {{ with .Params.image }}
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 -mt-8 mb-0">
+    <img src="{{ . }}" alt="{{ $.Title }}" class="w-full aspect-video object-cover shadow-xl">
+  </div>
+  {{ end }}
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+    <div class="prose-custom">
+      {{ .Content }}
+    </div>
+
+    {{ with .Params.tags }}
+    <div class="mt-12 pt-8 border-t border-stone-200">
+      <span class="font-sans text-xs text-gray-400 uppercase tracking-widest mr-3">Topics:</span>
+      {{ range . }}
+      <a href="/tags/{{ . | urlize }}/" class="inline-block font-sans text-xs bg-stone-100 text-gray-600 hover:bg-teal-50 hover:text-teal-700 px-3 py-1 mr-2 mb-2 transition-colors">{{ . }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <div class="mt-10 pt-8 border-t border-stone-200 flex items-center justify-between">
+      <a href="/blog/" class="font-sans text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors">← All posts</a>
+      <a href="/contact/" class="font-sans text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors">Get in touch →</a>
+    </div>
+  </div>
+</article>
+
+<!-- Related/author bio strip -->
+<div class="bg-stone-50 border-t border-stone-200 py-12">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="flex items-start gap-6">
+      <div class="w-16 h-16 rounded-full bg-teal-100 flex-shrink-0 overflow-hidden">
+        <div class="w-full h-full flex items-center justify-center text-teal-400">
+          <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <p class="font-sans text-xs text-gray-400 uppercase tracking-widest mb-1">Written by</p>
+        <p class="font-serif text-lg text-teal-900 font-semibold mb-1">Dr Britta Sorensen</p>
+        <p class="font-sans text-sm text-gray-600 leading-relaxed">Applied sport psychology researcher, ultra-endurance athlete, and advocate for evidence-based support for female athletes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

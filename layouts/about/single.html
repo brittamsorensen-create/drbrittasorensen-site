@@ -1,0 +1,19 @@
+{{ define "main" }}
+<article>
+  <header class="bg-teal-900 py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+      <span class="font-sans text-terracotta-300 font-medium tracking-widest uppercase text-xs mb-4 block">About</span>
+      <h1 class="font-serif text-4xl sm:text-5xl text-white leading-tight">{{ .Title }}</h1>
+    </div>
+  </header>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+    <div class="prose-custom">
+      {{ .Content }}
+    </div>
+    <div class="mt-10 pt-8 border-t border-stone-200">
+      <a href="/about/" class="font-sans text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors">← Back to About</a>
+    </div>
+  </div>
+</article>
+{{ end }}

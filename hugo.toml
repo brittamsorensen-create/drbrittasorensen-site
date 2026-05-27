@@ -2,5 +2,77 @@ baseURL = 'https://drbrittasorensen.com/'
 locale = 'en-us'
 title = 'Dr Britta Sorensen'
 
+[params]
+  description = "Sport psychology researcher with a PhD in applied sport psychology, ultra-endurance athlete, and sport massage therapist. Evidence-based resources for female ultra-endurance athletes."
+  email = "britta@drbrittasorensen.com"
+  linkedin = "#"
+  instagram = "#"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[[menu.main]]
+  name = "About"
+  identifier = "about"
+  url = "/about/"
+  weight = 10
+
+[[menu.main]]
+  name = "My Story"
+  parent = "about"
+  url = "/about/my-story/"
+  weight = 11
+
+[[menu.main]]
+  name = "Research & Expertise"
+  parent = "about"
+  url = "/about/research/"
+  weight = 12
+
+[[menu.main]]
+  name = "Blog"
+  identifier = "blog"
+  url = "/blog/"
+  weight = 20
+
+[[menu.main]]
+  name = "Podcast"
+  identifier = "podcast"
+  url = "/podcast/"
+  weight = 30
+
+[[menu.main]]
+  name = "My Episodes"
+  parent = "podcast"
+  url = "/podcast/"
+  weight = 31
+
+[[menu.main]]
+  name = "WiSEAN Podcast"
+  parent = "podcast"
+  url = "https://www.wisean.net/podcast"
+  weight = 32
+  [menu.main.params]
+    external = true
+
+[[menu.main]]
+  name = "Resources"
+  identifier = "resources"
+  url = "/resources/"
+  weight = 40
+
+[[menu.main]]
+  name = "Retreats"
+  identifier = "retreats"
+  url = "/retreats/"
+  weight = 50
+
+[[menu.main]]
+  name = "Contact"
+  identifier = "contact"
+  url = "/contact/"
+  weight = 60
+
 [build]
   writeStats = true

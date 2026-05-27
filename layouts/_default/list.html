@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div>
+  <header class="bg-teal-900 py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+      <span class="font-sans text-terracotta-300 font-medium tracking-widest uppercase text-xs mb-4 block">{{ .Section | title }}</span>
+      <h1 class="font-serif text-4xl sm:text-5xl text-white leading-tight">{{ .Title }}</h1>
+      {{ with .Description }}<p class="font-sans text-teal-200 text-lg mt-4 leading-relaxed">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+
+  {{ with .Content }}
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+    <div class="prose-custom">{{ . }}</div>
+  </div>
+  {{ end }}
+
+  {{ if .Pages }}
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range .Pages }}
+      <article class="group border border-stone-200 hover:border-teal-300 transition-colors">
+        <div class="p-8">
+          <h2 class="font-serif text-xl text-teal-900 mb-3 group-hover:text-teal-700 transition-colors leading-tight">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </h2>
+          {{ if .Date }}<div class="font-sans text-xs text-gray-400 mb-3">{{ .Date.Format "2 January 2006" }}</div>{{ end }}
+          <p class="font-sans text-gray-600 text-sm leading-relaxed mb-4">{{ .Summary | truncate 150 }}</p>
+          <a href="{{ .Permalink }}" class="font-sans text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors">Read more →</a>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

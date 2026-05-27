@@ -1,0 +1,50 @@
+{{ define "main" }}
+<article>
+  <!-- Page header -->
+  <header class="bg-teal-900 py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+      {{ with .Params.categories }}
+      <span class="font-sans text-terracotta-300 font-medium tracking-widest uppercase text-xs mb-4 block">{{ index . 0 }}</span>
+      {{ end }}
+      <h1 class="font-serif text-4xl sm:text-5xl text-white leading-tight mb-4">{{ .Title }}</h1>
+      {{ if .Date }}
+      <div class="font-sans text-sm text-teal-300">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+        {{ with .ReadingTime }} · {{ . }} min read{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </header>
+
+  <!-- Featured image -->
+  {{ with .Params.image }}
+  <div class="max-w-3xl mx-auto px-4 -mt-8">
+    <img src="{{ . }}" alt="{{ $.Title }}" class="w-full aspect-video object-cover shadow-lg">
+  </div>
+  {{ end }}
+
+  <!-- Content -->
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+    <div class="prose-custom">
+      {{ .Content }}
+    </div>
+
+    <!-- Tags -->
+    {{ with .Params.tags }}
+    <div class="mt-12 pt-8 border-t border-stone-200">
+      <span class="font-sans text-xs text-gray-400 uppercase tracking-widest mr-3">Tags:</span>
+      {{ range . }}
+      <a href="/tags/{{ . | urlize }}/" class="inline-block font-sans text-xs bg-stone-100 text-gray-600 hover:bg-teal-50 hover:text-teal-700 px-3 py-1 mr-2 mb-2 transition-colors">{{ . }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <!-- Back link -->
+    <div class="mt-8">
+      <a href="{{ .Section | printf "/%s/" }}" class="font-sans text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors">
+        ← Back to {{ .Section | title }}
+      </a>
+    </div>
+  </div>
+</article>
+{{ end }}

@@ -1,12 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if .IsHome }}Dr Britta Sorensen{{ else }}{{ .Title }} | Dr Britta Sorensen{{ end }}</title>
+  <title>{{ if .IsHome }}Dr Britta Sorensen — Applied Sport Psychology for Female Ultra-Endurance Athletes{{ else }}{{ .Title }} | Dr Britta Sorensen{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ if .IsHome }}Dr Britta Sorensen{{ else }}{{ .Title }} | Dr Britta Sorensen{{ end }}">
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="/css/main.css">
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="bg-white text-gray-900 font-sans">
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+  {{ partial "nav.html" . }}
+
   {{ block "main" . }}{{ end }}
+
+  {{ partial "newsletter-cta.html" . }}
+
+  {{ partial "footer.html" . }}
+
 </body>
 </html>

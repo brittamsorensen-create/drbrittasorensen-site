@@ -1,0 +1,78 @@
+{{ define "main" }}
+<div>
+  <header class="bg-teal-900 py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+      <span class="font-sans text-terracotta-300 font-medium tracking-widest uppercase text-xs mb-4 block">Audio</span>
+      <h1 class="font-serif text-4xl sm:text-5xl text-white leading-tight">Podcast</h1>
+      <p class="font-sans text-teal-200 text-lg mt-4 leading-relaxed max-w-xl">
+        Conversations about the psychology and physiology of female ultra-endurance sport — with athletes, researchers, coaches, and practitioners.
+      </p>
+    </div>
+  </header>
+
+  <!-- WiSEAN section -->
+  <section class="py-16 bg-stone-50 border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <span class="section-label">WiSEAN</span>
+        <h2 class="section-heading mb-6">Women in Sport &amp; Exercise Academia Network</h2>
+        <p class="font-sans text-gray-600 leading-relaxed mb-8">
+          I am proud to be a member and contributor to the WiSEAN network, which champions the work of women in sport and exercise science academia. The WiSEAN Podcast features conversations with researchers, practitioners, and advocates driving change in how we understand women in sport.
+        </p>
+        <a
+          href="https://www.wisean.net/podcast"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-outline"
+        >
+          Listen to WiSEAN Podcast ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- My episodes -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <span class="section-label">My Episodes</span>
+        <h2 class="section-heading mb-8">Episodes featuring Dr Britta Sorensen</h2>
+
+        {{ if .Pages }}
+        <div class="space-y-8">
+          {{ range .Pages }}
+          <article class="border border-stone-200 p-8 hover:border-teal-300 transition-colors group">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-terracotta-100 flex-shrink-0 flex items-center justify-center">
+                <svg class="w-6 h-6 text-terracotta-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-serif text-xl text-teal-900 mb-2 group-hover:text-teal-700 transition-colors leading-tight">
+                  <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </h3>
+                <div class="font-sans text-xs text-gray-400 mb-3">{{ .Date.Format "2 January 2006" }}{{ with .Params.podcast }}&nbsp;· {{ . }}{{ end }}</div>
+                <p class="font-sans text-gray-600 text-sm leading-relaxed mb-4">{{ .Summary | truncate 200 }}</p>
+                <a href="{{ .Permalink }}" class="font-sans text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors">View episode →</a>
+              </div>
+            </div>
+          </article>
+          {{ end }}
+        </div>
+        {{ else }}
+        <div class="border border-stone-200 p-12 text-center">
+          <div class="w-16 h-16 bg-teal-50 mx-auto mb-4 flex items-center justify-center">
+            <svg class="w-8 h-8 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+            </svg>
+          </div>
+          <p class="font-serif text-xl text-teal-900 mb-2">Episodes coming soon</p>
+          <p class="font-sans text-sm text-gray-500">In the meantime, find me on the <a href="https://www.wisean.net/podcast" target="_blank" rel="noopener noreferrer" class="text-teal-700 hover:underline">WiSEAN Podcast</a>.</p>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+</div>
+{{ end }}

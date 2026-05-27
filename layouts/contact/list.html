@@ -1,0 +1,111 @@
+{{ define "main" }}
+<div>
+  <header class="bg-teal-900 py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+      <span class="font-sans text-terracotta-300 font-medium tracking-widest uppercase text-xs mb-4 block">Get In Touch</span>
+      <h1 class="font-serif text-4xl sm:text-5xl text-white leading-tight">Contact</h1>
+      <p class="font-sans text-teal-200 text-lg mt-4 leading-relaxed max-w-xl">
+        Whether you want to collaborate, ask a question, or explore working together — I'd love to hear from you.
+      </p>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+
+      <!-- Contact info -->
+      <div class="lg:col-span-1">
+        <h2 class="font-serif text-2xl text-teal-900 mb-8">How I can help</h2>
+
+        <div class="space-y-8">
+          <div>
+            <h3 class="font-sans text-xs font-semibold tracking-widest uppercase text-terracotta-500 mb-3">Research &amp; Collaboration</h3>
+            <p class="font-sans text-gray-600 text-sm leading-relaxed">
+              I welcome connections with fellow researchers, practitioners, and organisations working in female endurance sport, sport psychology, or related fields.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-sans text-xs font-semibold tracking-widest uppercase text-terracotta-500 mb-3">Speaking &amp; Media</h3>
+            <p class="font-sans text-gray-600 text-sm leading-relaxed">
+              Available for podcast interviews, conference presentations, and expert commentary on female ultra-endurance athletes and applied sport psychology.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-sans text-xs font-semibold tracking-widest uppercase text-terracotta-500 mb-3">Retreats</h3>
+            <p class="font-sans text-gray-600 text-sm leading-relaxed">
+              For questions about the Women's Endurance Retreat Project, or to register interest, use the form on the <a href="/retreats/" class="text-teal-700 hover:underline">Retreats page</a>.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-sans text-xs font-semibold tracking-widest uppercase text-terracotta-500 mb-3">Direct Email</h3>
+            <a href="mailto:{{ .Site.Params.email }}" class="font-sans text-sm text-teal-700 hover:text-teal-900 underline underline-offset-2 transition-colors">{{ .Site.Params.email }}</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div class="lg:col-span-2">
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="space-y-6"
+          x-data="{ submitted: false }"
+          @submit.prevent="$event.target.submit(); submitted = true"
+        >
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+          <div x-show="submitted" class="bg-teal-50 border border-teal-200 p-6 text-center" style="display: none;">
+            <p class="font-serif text-xl text-teal-900 mb-2">Thank you for getting in touch</p>
+            <p class="font-sans text-sm text-teal-700">I'll get back to you as soon as I can — usually within a few days.</p>
+          </div>
+
+          <div x-show="!submitted">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="font-sans text-sm font-medium text-gray-700 block mb-2">Your name *</label>
+                <input type="text" id="name" name="name" required class="w-full border border-stone-300 px-4 py-3 font-sans text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500">
+              </div>
+              <div>
+                <label for="email" class="font-sans text-sm font-medium text-gray-700 block mb-2">Email address *</label>
+                <input type="email" id="email" name="email" required class="w-full border border-stone-300 px-4 py-3 font-sans text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500">
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <label for="subject" class="font-sans text-sm font-medium text-gray-700 block mb-2">Subject *</label>
+              <select id="subject" name="subject" required class="w-full border border-stone-300 px-4 py-3 font-sans text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white">
+                <option value="" disabled selected>Select a topic</option>
+                <option value="research-collaboration">Research &amp; Collaboration</option>
+                <option value="speaking-media">Speaking &amp; Media</option>
+                <option value="retreat-enquiry">Retreat Enquiry</option>
+                <option value="general">General Enquiry</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="mt-6">
+              <label for="message" class="font-sans text-sm font-medium text-gray-700 block mb-2">Message *</label>
+              <textarea id="message" name="message" rows="6" required class="w-full border border-stone-300 px-4 py-3 font-sans text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 resize-y"></textarea>
+            </div>
+
+            <div class="mt-6 flex items-start gap-3">
+              <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required class="mt-1 w-4 h-4 accent-teal-600">
+              <label for="gdpr-consent" class="font-sans text-sm text-gray-600">
+                I agree to my information being stored and used to respond to my enquiry. See our <a href="/privacy/" class="text-teal-700 underline hover:text-teal-900">privacy policy</a>.
+              </label>
+            </div>
+
+            <div class="mt-8">
+              <button type="submit" class="btn-primary w-full sm:w-auto !px-12">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+{{ end }}
